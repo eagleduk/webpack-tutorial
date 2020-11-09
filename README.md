@@ -59,3 +59,15 @@ Webpack 설정
 
 3. Chunk
     - bundle 파일을 분리
+
+최적화
+1. minification & mangling
+    - 주석 및 console
+    - 난독화 : 변수를 알파벳 하나의 변수로 치환
+    - html-wepack-plugin
+
+2. css 최적화
+    - cssnano, optimize-css-assets-webpack-plugin
+
+3. js 최적화
+    - terser
