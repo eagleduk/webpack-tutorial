@@ -1,0 +1,61 @@
+WEBPACK TUTORIAL
+        - 백성훈 (**)
+
+https://webpack.js.org/
+
+npm init -y
+npm install webpack webpack-cli --save-dev
+
+npx 명령어 -> node_modules/.bin 의 명령어들을 실행시켜 준다.
+
+bundle 의 파일들을 /src 폴더에 넣어주고,
+output 파일들은 /dist 라는 폴더에 생성된다.
+
+bundle 파일 만들기
+1. npx webpack
+2. bundle 시 node 의 모들을 사용할 시에는 --target=node 를 추가하여 준다.
+3. webpack 환경 설정 파일 webpack.config.js 를 작성하면 (1) 의 명령어로만 실행시킬 수 있다.
+
+package.json
+** 내부의 참조 모듈들을 한번에 설치하기 위해서는 npm install
+1. dependencies
+    - 어플리케이션에 포함되는 모듈들
+    - npm 설치시 --save
+2. devDependencies
+    - 개발과정에 관여하는 모듈들
+    - npm 설치시 --save-dev
+
+Loader
+** javascript 파일, js 파일 이외의 파일을 bundle 하기 위한 webpack 의 설정
+** https://webpack.js.org/loaders/
+1. style-loader, css-loader
+    - css 파일을 bundle에 포함시키기 위한 모듈
+
+Plugin
+1. HtmlWebpackPlugin
+    - "template" 값에 명시된 html 파일을 기준으로 bundle 시 html 파일을 생성해 준다.
+    - https://github.com/jantimon/html-webpack-plugin#options
+
+Webpack 설정
+1. Handlebars
+    - .hbs
+    - npm i handlebars -D
+    - npm i handlebars-loader -D
+    - webpack.config.js 옵션으로 값을 설정하고, 그 값을 bundling 할 때 가져다 사용할 수 있다.
+    - model(webpack.config.js), template(*.hbs), view(bundle 된 *.html) 형태
+
+2. Caching
+    - 이용자의 사용시간을 최소화
+    - [hash], [contentHash]
+        => hash: bundle 될때, 수정사항이 있는 파일이 있으면, 모든 [hash] 가 들어있는 파일들이 새로 bundling 된다.
+        => contentHash: 수정사항이 있는 파일만 새로 bundling 된다.
+    - bundle 된 파일의 이름이 같으면 브라우저는 새로운 파일이라고 인식을 못하기 때문에, 파일이름에 hash 값을 추가로 넣어주면,
+        bundling 과정에서 이름이 다른 파일이 생성이 된다. 하지만 매번 새로운 파일을 생성하기 때문에, output 폴더를 초기화 해주는 작업이 필요하다.
+        => npm i clean-webpack-plugin -D
+        => 설치 후 config.webpack.js 에 require 후 plugin 에 추가를 해주어야 한다.
+    - css 파일도 하나의 파일로 생성
+        => npm i mini-css-extract-plugin -D
+        => 설치 후 config.webpack.js 에 require 후 plugin 에 추가, rules 에 추가를 해주면, output 폴더에 css 파일도 생성이 된다.
+
+3. Chunk
+    - bundle 파일을 분리
