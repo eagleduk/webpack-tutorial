@@ -12,6 +12,11 @@ module.exports = {
         path: path.resolve(__dirname, "dist"),
         filename: "[name].[chunkhash].js"
     },
+    devServer: {
+        contentBase: path.resolve(__dirname, './'),
+        port: 9000,
+        hot: true
+    },
     target: "node",
     module: {
         rules: [
@@ -36,7 +41,6 @@ module.exports = {
                 viewport: "width=device-width, initial-scale=1.0",
             },
             minify: isProduction ? {
-                
                 collapseInlineTagWhitespace: true,
                 useShortDoctype: true,
                 removeScriptTypeAttributes: true
@@ -44,7 +48,7 @@ module.exports = {
         }),
         new CleanWebpackPlugin(),
         new webpack.DefinePlugin({
-            IS_PRODUCTION: true
+            IS_PRODUCTION: isProduction
         })
     ]
 }
