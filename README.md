@@ -3,6 +3,10 @@ WEBPACK TUTORIAL
 
 https://webpack.js.org/
 
+그외 참조 사이트
+    - https://jeonghwan-kim.github.io/series/2019/12/10/frontend-dev-env-webpack-basic.html
+    - https://muang-kim.tistory.com/102
+
 npm init -y
 npm install webpack webpack-cli --save-dev
 
@@ -71,3 +75,9 @@ Webpack 설정
 
 3. js 최적화
     - terser
+
+Mode
+    - 각 개발시 bundling 시간을 단축하기 위해 개발모드, 배포모드 등의 설정을 다르게 한다.
+    - node_env 가 윈도우에서는 안되는듯... 제대로 알려주지도 않는다..
+        => npm i win-node-env -D 설치 후 해결....
+    - 아무튼... 정말 수업듣기 힘들다....

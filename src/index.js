@@ -21,3 +21,4 @@ rl.question("input >>>> ", input => {
     rl.close();
 })
 console.log($);
+console.log(`IS_PRODUCTION MODE : ${IS_PRODUCTION}`)
