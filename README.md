@@ -108,3 +108,10 @@ loader
     - npm i postcss-loader -D
     - browser list
     - style lint
+
+5. BABEL
+    - 하위 브라우저에서도 호환할 수 있도록 도와준다
+    - npm i @babel/cli -D
+    - npm i @babel/core -D
+    - npm i @babel/preset-env -D
+    - npm i babel-loader -D
