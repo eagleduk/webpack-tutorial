@@ -27,6 +27,33 @@ module.exports = {
             {
                 test: /\.hbs$/,
                 use: ["handlebars-loader"]
+            },
+            {
+                test: /\.(png|jpg|jpe?g|gif)$/i,
+                use: [
+                    {
+                      loader: "file-loader",
+                      options: {
+                        //name: "[contenthash].[ext]",
+                        name() {
+                            return isProduction ? "[contenthash].[ext]" : "[name].[ext]";
+                        },
+                        publicPath: "image",
+                        outputPath: "image"
+                      },
+                    },
+                ]
+            },
+            {
+                test: /\.(svg)$/i,
+                use: [
+                    {
+                      loader: "url-loader",
+                      options: {
+                          limit: 8192
+                      },
+                    },
+                ]
             }
         ]
     },
@@ -43,8 +70,11 @@ module.exports = {
             minify: isProduction ? {
                 collapseInlineTagWhitespace: true,
                 useShortDoctype: true,
-                removeScriptTypeAttributes: true
-            } : false
+                removeScriptTypeAttributes: true,
+                removeComments: true,
+            } : {
+                removeComments: true,
+            }
         }),
         new CleanWebpackPlugin(),
         new webpack.DefinePlugin({

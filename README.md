@@ -86,3 +86,25 @@ Mode
     - webpack-dev-server 가 작동이 되지 않는다.... 버전 충돌이라는데... 잘 모르겠다...
     - api 를 보고 공부해야할듯....
     - historyApiFallback, open, overlay, port
+
+loader
+1. file loader
+    - npm i file-loader -D
+    - https://github.com/webpack-contrib/file-loader
+
+2. url loader
+    - npm i url-loader -D
+    - https://github.com/webpack-contrib/url-loader
+
+3. sass loader
+    - npm i sass-loader -D
+    - https://github.com/webpack-contrib/sass-loader
+    - npm i node-sass -D
+
+4. postcss loader
+    - https://postcss.org/
+    - npm i postcss -D
+    - npm i autoprefixer -D
+    - npm i postcss-loader -D
+    - browser list
+    - style lint
