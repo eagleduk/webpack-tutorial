@@ -27,7 +27,8 @@
   },
   "scripts": {
     "dev": "set NODE_ENV=DEVELOPMENT&&webpack --config webpack.dev.js",
-    "build": "set NODE_ENV=PRODUCTION&&webpack --config webpack.prod.js"
+    "build": "set NODE_ENV=PRODUCTION&&webpack --config webpack.prod.js",
+    "start": "webpack-dev-server"
   },
   "keywords": [],
   "author": "",
